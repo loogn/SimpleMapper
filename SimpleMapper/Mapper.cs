@@ -6,6 +6,12 @@ namespace SimpleMapper
 {
     public static class Mapper
     {
+
+        public static TOutType Map<TOutType>(object input)
+        {
+            var targetType = typeof(TOutType);
+            return (TOutType)Map(targetType, input);
+        }
         public static object Map(Type targetType, object input)
         {
             if (input == null) return default;
@@ -100,10 +106,6 @@ namespace SimpleMapper
             return default;
         }
 
-        public static TOutType Map<TOutType>(object input)
-        {
-            var targetType = typeof(TOutType);
-            return (TOutType)Map(targetType, input);
-        }
+
     }
 }

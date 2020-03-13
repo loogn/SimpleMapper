@@ -43,8 +43,10 @@ namespace Test
             a.abc = new Dictionary<string, string>();
             a.abc.Add("aa", "bb");
 
-            var b = Mapper.Map<B>(a);
-            Console.WriteLine(b.abc["aa"]);
+            var alist = new List<A> { a };
+
+            var blist = Mapper.Map<List<B>>(alist);
+            Console.WriteLine(blist[0].abc["aa"]);
         }
     }
 }
